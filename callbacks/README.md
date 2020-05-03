@@ -29,7 +29,7 @@ Here, cb() is our callback function which is "called back" in other function cal
 Now lets see why we need callback functions.
 
 ### Why do we need callbacks?
-Lets say we want some action to happen when we finish some task. For instance, we want to upload ourphoto and post it. The sequence of this operation is: upload photo first and then post it. How can we achieve it?
+Lets say we want some action to happen when we finish some task. For instance, we want to upload our photo and post it. The sequence of this operation is: upload photo first and then post it. How can we achieve it?
 ```javascript
 function uploadImage(img, cb) {
 console.log("Uploading image...");
