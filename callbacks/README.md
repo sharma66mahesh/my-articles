@@ -36,7 +36,7 @@ console.log("Uploading image...");
 // do some stuff to upload image
 // ...
 console.log("Image uploaded.");
-cb(img);
+postImage(img);
 // ...
 }
 
@@ -69,7 +69,7 @@ uploadImage("/path/to/image.jpg");
 Yes, you could have done it, if you wrote uploadImage() yourself. If it was written by someone else or it is a part of a library, you could have been allowed to pass the callback that takes one argument(img). For example: map() method in Javascript takes a callback with three arguments(More on this: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map).
 
 ### Synchronous and Asynchronous callbacks
-Every example we have seen till now, we have used synchronous callbacks.It means we know when our callback is going to be called. In previous example, we know cb(img) gets executed after console.log("Image uploaded.").And one important thing to note here is, synchronous callbacks return value(in our example we didn't explicitly return anything, however). It means everything waits untill the function returns.This has very significant implications in single threaded language like Javascript.
+Every example we have seen till now, we have used synchronous callbacks.It means we know when our callback is going to be called. In previous example, we know postImage(img) gets executed after console.log("Image uploaded.").And one important thing to note here is, synchronous callbacks return value(in our example we didn't explicitly return anything, however). It means everything waits untill the function returns.This has very significant implications in single threaded language like Javascript.
 Javascript is single threaded, which means it has one call stack. Call stack is where functions get pushed and popped off for execution. We don't want to fill our call stack with loads of time consuming functions(CPU intensive tasks like image processing, I/O request, etc) at the same time. But Javascript is a language for the web. What's the point of it if it  doesn't handle network requests efficiently since it only has one call stack? Does one call stack mean the user has to wait for 10 seconds to upload photo, meanwhile staring at the screen because nothing works untill the image is uploaded? Why implement just one call stack then, are Javascript creators that stupid?
 All these questions can be answered by one function: setTimeout().
 
